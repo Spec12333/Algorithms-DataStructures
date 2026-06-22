@@ -114,7 +114,7 @@ class DoublyLinkedList {
             const res = this.#head.value;
             this.#head = null;
             this.#tail = null;
-            return;
+            return res;
         }
         const res = this.#head.value;
         this.#head = this.#head.next;
@@ -130,7 +130,7 @@ class DoublyLinkedList {
             const res = this.#head.value;
             this.#head = null;
             this.#tail = null;
-            return;
+            return res;
         }
         const res = this.#tail.value;
         this.#tail = this.#tail.prev;

@@ -1,22 +1,18 @@
 class DArray {
     #size = 0;
-    #capacity = 2;
+    #capacity;
     #arr = null;
     CAP_EXPONENT = 2;
 
-    constructor(initialCapacity) {
-        if (initialCapacity === undefined || initialCapacity === null) {
-            initialCapacity = 2;
-        }
+    constructor(initialCapacity = 8) {
         if (!Number.isInteger(initialCapacity)) {
             throw new Error("Capacity must be an integer");
         }
-        if (initialCapacity < 0) {
-            throw new Error("Capacity must be positive number");
+        if (initialCapacity <= 0) {
+            throw new Error("Capacity must be positive integer");
         }
-        const safeCapacity = Math.max(2, initialCapacity);
-        this.#capacity = safeCapacity;
-        this.#arr = new Int32Array(safeCapacity);
+        this.#capacity = initialCapacity;
+        this.#arr = new Array(this.#capacity);
     }
 
     resize(newCapacity, fill = 0) {
